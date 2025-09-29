@@ -19,6 +19,26 @@ const locationsData = [
     },
     // Add more cases as needed
   ];
+
+ // Function to fetch data from the server
+export async function fetchCases() {
+  try {
+      const response = await fetch('http://localhost:3002/uploads');
+      
+      // Check if the request was successful
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json(); // Assuming the response is JSON
+      console.log(data); // Display the data in the console or process it as needed
+      return data;
+      
+      // You can use the data here
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }
+}
   
-  export default locationsData;
+  // export default locationsData;
   
